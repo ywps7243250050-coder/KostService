@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KostService – Solusi Praktis untuk Anak Kos</title>
+<style>
+:root{--b:#1565c0;--d:#0d2f6b;--bg:#eef4fc;--t:#1c2b4a}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",Roboto,Arial,sans-serif;color:var(--t);background:#fff}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:0}
+header{position:sticky;top:0;z-index:50;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:8px 5%;box-shadow:0 2px 10px #0001;gap:12px}
+.logo{display:flex;align-items:center;gap:8px}
+.logo svg{width:46px;height:46px}
+.logo b{display:block;font-size:30px;line-height:1;color:var(--d);font-weight:800}
+.logo b i{color:var(--b);font-style:normal}
+.logo small{font-size:11px;font-weight:600}
+nav{display:flex;gap:22px;align-items:center;font-size:14px}
+nav>a,.dd>a{padding:20px 0;display:block;color:#445}
+nav a.on{color:var(--b);font-weight:700;border-bottom:3px solid var(--b)}
+.dd{position:relative}
+.dd div{display:none;position:absolute;top:100%;left:0;background:#fff;box-shadow:0 8px 24px #0002;border-radius:10px;min-width:170px;overflow:hidden}
+.dd:hover div,.dd.open div{display:block}
+.dd div a{display:block;padding:10px 16px;font-size:14px}
+.dd div a:hover{background:var(--bg)}
+.btn{background:var(--b);color:#fff;border-radius:30px;padding:13px 26px;font-weight:700;font-size:15px;display:inline-flex;align-items:center;gap:8px;transition:.2s}
+.btn:hover{background:var(--d);transform:translateY(-2px)}
+.hero{position:relative;background:linear-gradient(90deg,#f4f8fd 0,#e8eff9 45%,#d9e4f0 100%);padding:50px 5% 90px;display:flex;overflow:hidden;min-height:430px}
+.hero .txt{max-width:640px;z-index:2}
+.hero h1{font-size:50px;line-height:1.1;margin:30px 0 14px;color:#222d3f}
+.hero h1 span{color:var(--b);display:inline-block;border-bottom:4px solid #ffc107;padding-bottom:6px}
+.hero p{font-size:20px;line-height:1.5;color:#445;margin:20px 0}
+.chk{display:flex;gap:26px;flex-wrap:wrap;font-size:15px;color:#445;margin-bottom:26px}
+.chk i{display:inline-block;width:26px;height:26px;border-radius:50%;background:var(--b);color:#fff;text-align:center;line-height:26px;font-style:normal;margin-right:8px}
+.cta{display:flex;gap:18px;flex-wrap:wrap}
+.btn2{border:2px solid #7aa7e0;background:#fff8;border-radius:30px;padding:8px 24px;font-size:14px;line-height:1.3;color:var(--t);text-align:left}
+.btn2 b{display:block;font-size:15px}
+.btn2:hover{background:#fff}
+.girl{position:absolute;right:0;top:0;width:56%;height:calc(100% - 60px);object-fit:cover;object-position:left top;z-index:1;-webkit-mask-image:linear-gradient(90deg,transparent,#000 22%);mask-image:linear-gradient(90deg,transparent,#000 22%)}
+.cat{position:relative;margin:-60px 3% 0;background:#fff;border-radius:26px;box-shadow:0 8px 30px #1565c022;padding:44px 22px 22px;z-index:5}
+.cat h2{position:absolute;top:-8px;left:30px;margin:0;background:var(--b);color:#fff;font-size:19px;padding:6px 14px;border-radius:4px}
+.cat .all{position:absolute;right:26px;top:14px;font-size:13px;color:var(--b);font-weight:600}
+.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.card{background:#fff;border-radius:6px;box-shadow:0 3px 12px #0002;overflow:hidden;text-align:left;padding-bottom:14px}
+.card .im{height:128px}
+.im img{width:100%;height:100%;object-fit:cover;display:block}
+.card h3{margin:12px 14px 2px;font-size:16px;color:var(--d)}
+.card p{margin:0 14px 10px;font-size:13px;color:#445}
+.card .btn{font-size:12px;padding:7px 0;width:calc(100% - 28px);margin:0 14px;justify-content:center;border-radius:6px;display:flex}
+.feat{margin:18px 3%;background:linear-gradient(90deg,#d5e4f8,#e7f0fb);border-radius:14px;display:grid;grid-template-columns:repeat(4,1fr);padding:14px}
+.feat div{display:flex;align-items:center;gap:12px;padding:6px 20px;border-right:1px solid #8aa9d6;font-size:14px}
+.feat div:last-child{border:0}
+.feat span{font-size:34px}
+.feat b{display:block;font-size:16px}
+.row{display:grid;grid-template-columns:1.1fr .8fr 1.3fr 1.1fr;gap:20px;padding:10px 3% 30px;align-items:stretch}
+.row h3{margin:0 0 10px;font-size:19px;color:var(--d)}
+.row p{font-size:13px;line-height:1.6;color:#3a4a6a}
+.room{border-radius:6px;min-height:150px;overflow:hidden;box-shadow:0 3px 10px #0002}
+.room img,.av img{width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit}
+.tes{position:relative}
+.tbox{background:#fff;box-shadow:0 3px 14px #0002;border-radius:8px;padding:16px;display:flex;gap:14px;align-items:center;min-height:100px}
+.av{width:64px;height:64px;border-radius:50%;background:#f3c9a5;flex:none;display:flex;align-items:center;justify-content:center;font-size:34px;overflow:hidden}
+.tbox q{font-size:14px;display:block;margin-bottom:8px}
+.tbox small{font-weight:600}
+.stars{color:#ffb400;float:right}
+.dots{text-align:center;margin-top:10px}
+.dots i{display:inline-block;width:11px;height:11px;border-radius:50%;background:#ccd;margin:0 4px;cursor:pointer}
+.dots i.on{background:var(--b)}
+.wa{background:linear-gradient(135deg,#0d4aa8,#0d2f6b);color:#fff;border-radius:16px;padding:18px 20px;display:flex;gap:14px;align-items:center}
+.wa .ic{font-size:50px}
+.wa b{display:block;font-size:19px;line-height:1.3}
+.wa em{font-style:normal;font-size:27px;font-weight:800;display:block}
+.wa .w{background:#fff;color:var(--d);border-radius:30px;padding:9px 24px;font-weight:700;margin-top:8px;display:inline-block}
+.sm{font-size:13px;padding:10px 20px}
+footer{background:linear-gradient(90deg,#14305f,#1c4488);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:18px 3%;gap:16px;flex-wrap:wrap;font-size:14px}
+footer nav{gap:14px}
+footer nav a{padding:0 14px 0 0;border-right:1px solid #fff6}
+footer nav a:last-child{border:0}
+.soc{display:flex;gap:14px;font-size:22px}
+.copy{font-size:11px}
+#toast{position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:var(--d);color:#fff;padding:12px 22px;border-radius:30px;display:none;z-index:99}
+@media(max-width:1000px){nav{display:none}.cards{grid-template-columns:repeat(2,1fr)}.feat{grid-template-columns:1fr 1fr}.row{grid-template-columns:1fr 1fr}.girl{opacity:.35}.hero h1{font-size:38px}}
+@media(max-width:640px){.cards,.row,.feat{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header id="top">
+ <a class="logo" href="#beranda"><svg viewBox="0 0 60 60"><path d="M6 30 30 8l22 20v22H6z" fill="none" stroke="#1565c0" stroke-width="5" stroke-linejoin="round"/><rect x="22" y="26" width="8" height="8" fill="#0d2f6b"/><rect x="32" y="26" width="8" height="8" fill="#0d2f6b"/><path d="M4 50c14-8 26 6 52-4" stroke="#1565c0" stroke-width="5" fill="none"/><path d="M50 4l2 6 6 2-6 2-2 6-2-6-6-2 6-2z" fill="#ffc107"/></svg><span><b>Kost<i>Service</i></b><small>Solusi Praktis untuk Semua Kebutuhan Anak Kos</small></span></a>
+ <nav id="menu">
+  <a href="#beranda" class="on">🏠 Beranda</a>
+  <div class="dd"><a href="#layanan" id="ddb">▦ Layanan ⌄</a><div><a href="#layanan" data-s="Kost Cleaning">Kost Cleaning</a><a href="#layanan" data-s="Kost Laundry">Kost Laundry</a><a href="#layanan" data-s="Kost Delivery">Kost Delivery</a><a href="#layanan" data-s="Kost Repair">Kost Repair</a><a href="#layanan" data-s="Kost Care">Kost Care</a></div></div>
+  <a href="#harga">🏷 Harga</a><a href="#tentang">ⓘ Tentang Kami</a><a href="#testimoni">★ Testimoni</a><a href="#kontak">✉ Kontak</a>
+ </nav>
+ <button class="btn wal" data-m="Halo KostService, saya ingin memesan layanan.">💬 Pesan Sekarang</button>
+</header>
+
+<section class="hero" id="beranda">
+ <div class="txt">
+  <h1>Kamar Berantakan?<br>Serahkan ke <span>KostService!</span></h1>
+  <p>Kami siap membantu semua kebutuhan kos Anda,<br>dari cleaning, laundry, delivery, hingga perbaikan ringan.</p>
+  <div class="chk"><span><i>✓</i>Cepat &amp; Profesional</span><span><i>✓</i>Terpercaya</span><span><i>🏷</i>Harga Terjangkau</span></div>
+  <div class="cta"><a class="btn" href="#layanan">📅 Pesan Layanan Sekarang →</a><button class="btn2 wal" data-m="Halo KostService, saya ingin bertanya tentang layanan."><b>💬 Chat WhatsApp</b>082114933545</button></div>
+ </div>
+ <img class="girl" alt="Petugas KostService" src="images/hero.jpg">
+</section>
+
+<section class="cat" id="layanan">
+ <h2>Katalog Layanan Kami</h2><a class="all" href="#layanan" id="all">Lihat Semua Layanan →</a>
+ <div class="cards">
+  <div class="card"><div class="im"><img alt="" src="images/card1.jpg"></div><h3>🧹 Kost Cleaning</h3><p>Bersih, nyaman, sehat</p><button class="btn ord" data-s="Kost Cleaning">🛒 Pesan Sekarang</button></div>
+  <div class="card"><div class="im"><img alt="" src="images/card2.jpg"></div><h3>🧼 Kost Laundry</h3><p>Cuci cepat &amp; bersih</p><button class="btn ord" data-s="Kost Laundry">🛒 Pesan Sekarang</button></div>
+  <div class="card"><div class="im"><img alt="" src="images/card3.jpg"></div><h3>🚚 Kost Delivery</h3><p>Antar kebutuhan Anda</p><button class="btn ord" data-s="Kost Delivery">🛒 Pesan Sekarang</button></div>
+  <div class="card"><div class="im"><img alt="" src="images/card4.jpg"></div><h3>🔧 Kost Repair</h3><p>Perbaikan ringan &amp; cepat</p><button class="btn ord" data-s="Kost Repair">🛒 Pesan Sekarang</button></div>
+  <div class="card"><div class="im"><img alt="" src="images/card5.jpg"></div><h3>💙 Kost Care</h3><p>Perawatan berkala</p><button class="btn ord" data-s="Kost Care">🛒 Pesan Sekarang</button></div>
+ </div>
+</section>
+
+<section class="feat" id="harga">
+ <div><span>⏱</span><p><b>Pelayanan Cepat</b>Sesuai Jadwal</p></div>
+ <div><span>🛡</span><p><b>Aman &amp; Terpercaya</b>Untuk Kamar Anda</p></div>
+ <div><span>🎧</span><p><b>CS Responsif</b>Via WhatsApp</p></div>
+ <div><span>🏷</span><p><b>Harga Transparan</b>Tanpa Biaya Tersembunyi</p></div>
+</section>
+
+<section class="row">
+ <div id="tentang"><h3>🏠 Tentang KostService</h3><p>KostService adalah layanan one stop service untuk semua kebutuhan anak kos. Kami hadir untuk membuat hidup Anda lebih mudah, nyaman, dan produktif.</p><button class="btn sm" id="more">Pelajari Lebih Lanjut →</button></div>
+ <div class="room"><img alt="Kamar kos" src="images/room.jpg"></div>
+ <div class="tes" id="testimoni"><h3>★ Testimoni Pelanggan <a href="#testimoni" id="allt" style="float:right;font-size:12px;color:var(--b)">Lihat Semua →</a></h3>
+  <div class="tbox"><div class="av" id="av"><img alt="" src="images/avatar.jpg"></div><div><q id="tq">“Pelayanannya cepat, kamar jadi lebih bersih dan nyaman. Recommended banget untuk anak kos!”</q><small id="tn">– Siti Rahma, Mahasiswi</small><span class="stars">★★★★★</span></div></div>
+  <div class="dots" id="dots"><i class="on"></i><i></i><i></i></div></div>
+ <div class="wa" id="kontak"><div class="ic">📱</div><div><b>Pesan Sekarang<br>Melalui WhatsApp</b><em>082114933545</em><button class="w wal" data-m="Halo KostService, saya ingin memesan layanan.">Chat Sekarang →</button></div></div>
+</section>
+
+<footer>
+ <a class="logo" href="#top"><span><b style="font-size:22px;color:#fff">Kost<i style="color:#fff">Service</i></b><small>Solusi Praktis untuk Semua Kebutuhan Anak Kos</small></span></a>
+ <nav><a href="#beranda">Beranda</a><a href="#layanan">Layanan</a><a href="#harga">Harga</a><a href="#tentang">Tentang Kami</a><a href="#testimoni">Testimoni</a><a href="#kontak">Kontak</a></nav>
+ <div class="soc"><a href="https://www.instagram.com/" target="_blank" rel="noopener">📷</a><a href="https://www.tiktok.com/" target="_blank" rel="noopener">🎵</a><a href="https://www.youtube.com/" target="_blank" rel="noopener">▶️</a><a href="https://wa.me/6282114933545" target="_blank" rel="noopener">💬</a></div>
+ <span class="copy">KostService © 2026. Semua Hak Dilindungi.</span>
+</footer>
+<div id="toast"></div>
+
+<script>
+var N="6282114933545";
+function wa(m){window.open("https://wa.me/"+N+"?text="+encodeURIComponent(m),"_blank")}
+function toast(t){var e=document.getElementById("toast");e.textContent=t;e.style.display="block";setTimeout(function(){e.style.display="none"},3000)}
+document.querySelectorAll(".wal").forEach(function(b){b.onclick=function(){wa(b.dataset.m)}});
+document.querySelectorAll(".ord").forEach(function(b){b.onclick=function(){wa("Halo KostService, saya ingin memesan layanan "+b.dataset.s+".")}});
+document.querySelectorAll(".dd div a").forEach(function(a){a.onclick=function(e){e.preventDefault();wa("Halo KostService, saya ingin memesan layanan "+a.dataset.s+".")}});
+document.getElementById("ddb").onclick=function(e){e.preventDefault();this.parentNode.classList.toggle("open")};
+document.getElementById("all").onclick=function(e){e.preventDefault();toast("Semua layanan sudah tampil di katalog ini.")};
+document.getElementById("allt").onclick=function(e){e.preventDefault();toast("Terima kasih atas testimoni dari pelanggan kami!")};
+document.getElementById("more").onclick=function(){toast("KostService: cleaning, laundry, delivery, repair & care untuk anak kos.")};
+var links=document.querySelectorAll("#menu>a");
+links.forEach(function(a){a.addEventListener("click",function(){links.forEach(function(x){x.classList.remove("on")});a.classList.add("on")})});
+var T=[["“Pelayanannya cepat, kamar jadi lebih bersih dan nyaman. Recommended banget untuk anak kos!”","– Siti Rahma, Mahasiswi",'<img alt="" src="images/avatar.jpg">'],["“Laundrynya rapi dan wangi, diantar tepat waktu. Sangat membantu saat masa ujian.”","– Budi Santoso, Mahasiswa","👨"],["“Kran kamar mandi bocor langsung dibenerin cepat. Harganya juga jelas!”","– Dewi Lestari, Karyawati","👩‍💼"]];
+var d=document.querySelectorAll("#dots i"),k=0,tm;
+function show(i){k=i;document.getElementById("tq").textContent=T[i][0];document.getElementById("tn").textContent=T[i][1];document.getElementById("av").innerHTML=T[i][2];d.forEach(function(x,j){x.className=j==i?"on":""})}
+d.forEach(function(x,i){x.onclick=function(){show(i);clearInterval(tm);tm=setInterval(function(){show((k+1)%3)},5000)}});
+tm=setInterval(function(){show((k+1)%3)},5000);
+</script>
+</body>
+  </html>
