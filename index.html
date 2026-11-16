@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>KostService – Solusi Praktis untuk Anak Kos</title>
 <style>
-:root{--b:#1565c0;--d:#0d2f6b;--bg:#eef4fc;--t:#1c2b4a}
-html{scroll-behavior:smooth;scroll-padding-top:80px}
+:root{--b:#1565c0;--d:#0d2f6b;--bg:#eef4fc;--t:#1c2b4a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:80px;color-scheme:light}
 *{box-sizing:border-box}
 body{margin:0;font-family:"Segoe UI",Roboto,Arial,sans-serif;color:var(--t);background:#fff}
 a{text-decoration:none;color:inherit}
 button{font-family:inherit;cursor:pointer;border:0}
-header{position:sticky;top:0;z-index:50;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:8px 5%;box-shadow:0 2px 10px #0001;gap:12px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:8px 5%;box-shadow:0 2px 10px #0001;gap:12px}
 .logo{display:flex;align-items:center;gap:8px}
 .logo svg{width:46px;height:46px}
 .logo b{display:block;font-size:30px;line-height:1;color:var(--d);font-weight:800}
@@ -39,14 +39,15 @@ nav a.on{color:var(--b);font-weight:700;border-bottom:3px solid var(--b)}
 .btn2 b{display:block;font-size:15px}
 .btn2:hover{background:#fff}
 .girl{position:absolute;right:0;top:0;width:56%;height:calc(100% - 60px);object-fit:cover;object-position:left top;z-index:1;-webkit-mask-image:linear-gradient(90deg,transparent,#000 22%);mask-image:linear-gradient(90deg,transparent,#000 22%)}
+.xprice{position:absolute;right:3%;top:28px;z-index:3;background:#ffc400;border-radius:48% 52% 45% 55%;padding:26px 30px;text-align:center;transform:rotate(-6deg);font-weight:800;font-size:20px;box-shadow:0 8px 20px #0003}
+.price b{display:block;font-size:34px}
 .cat{position:relative;margin:-60px 3% 0;background:#fff;border-radius:26px;box-shadow:0 8px 30px #1565c022;padding:44px 22px 22px;z-index:5}
 .cat h2{position:absolute;top:-8px;left:30px;margin:0;background:var(--b);color:#fff;font-size:19px;padding:6px 14px;border-radius:4px}
 .cat .all{position:absolute;right:26px;top:14px;font-size:13px;color:var(--b);font-weight:600}
 .cards{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
 .card{background:#fff;border-radius:6px;box-shadow:0 3px 12px #0002;overflow:hidden;text-align:left;padding-bottom:14px}
-.card .im{height:128px}
-.im img{width:100%;height:100%;object-fit:cover;display:block}
-.card h3{margin:12px 14px 2px;font-size:16px;color:var(--d)}
+.card .im{height:128px;display:flex;align-items:center;justify-content:center;font-size:64px}
+.im img{width:100%;height:100%;object-fit:cover;display:block}.room img,.av img{width:100%;height:100%;object-fit:cover;border-radius:inherit;display:block}.card h3{margin:12px 14px 2px;font-size:16px;color:var(--d)}
 .card p{margin:0 14px 10px;font-size:13px;color:#445}
 .card .btn{font-size:12px;padding:7px 0;width:calc(100% - 28px);margin:0 14px;justify-content:center;border-radius:6px;display:flex}
 .feat{margin:18px 3%;background:linear-gradient(90deg,#d5e4f8,#e7f0fb);border-radius:14px;display:grid;grid-template-columns:repeat(4,1fr);padding:14px}
@@ -57,11 +58,10 @@ nav a.on{color:var(--b);font-weight:700;border-bottom:3px solid var(--b)}
 .row{display:grid;grid-template-columns:1.1fr .8fr 1.3fr 1.1fr;gap:20px;padding:10px 3% 30px;align-items:stretch}
 .row h3{margin:0 0 10px;font-size:19px;color:var(--d)}
 .row p{font-size:13px;line-height:1.6;color:#3a4a6a}
-.room{border-radius:6px;min-height:150px;overflow:hidden;box-shadow:0 3px 10px #0002}
-.room img,.av img{width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit}
+.room{border-radius:6px;background:linear-gradient(135deg,#f3dfc0,#d9b98a 60%,#8fa3c7);min-height:150px;display:flex;align-items:center;justify-content:center;font-size:70px;box-shadow:0 3px 10px #0002}
 .tes{position:relative}
 .tbox{background:#fff;box-shadow:0 3px 14px #0002;border-radius:8px;padding:16px;display:flex;gap:14px;align-items:center;min-height:100px}
-.av{width:64px;height:64px;border-radius:50%;background:#f3c9a5;flex:none;display:flex;align-items:center;justify-content:center;font-size:34px;overflow:hidden}
+.av{width:64px;height:64px;border-radius:50%;background:#f3c9a5;flex:none;display:flex;align-items:center;justify-content:center;font-size:34px}
 .tbox q{font-size:14px;display:block;margin-bottom:8px}
 .tbox small{font-weight:600}
 .stars{color:#ffb400;float:right}
@@ -81,8 +81,8 @@ footer nav a:last-child{border:0}
 .soc{display:flex;gap:14px;font-size:22px}
 .copy{font-size:11px}
 #toast{position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:var(--d);color:#fff;padding:12px 22px;border-radius:30px;display:none;z-index:99}
-@media(max-width:1000px){nav{display:none}.cards{grid-template-columns:repeat(2,1fr)}.feat{grid-template-columns:1fr 1fr}.row{grid-template-columns:1fr 1fr}.girl{opacity:.35}.hero h1{font-size:38px}}
-@media(max-width:640px){.cards,.row,.feat{grid-template-columns:1fr}}
+@media(max-width:1000px){nav{display:none}.cards{grid-template-columns:repeat(2,1fr)}.feat{grid-template-columns:1fr 1fr}.row{grid-template-columns:1fr 1fr}.girl{position:absolute;right:0;top:0;width:56%;height:calc(100% - 60px);object-fit:cover;object-position:left top;z-index:1;-webkit-mask-image:linear-gradient(90deg,transparent,#000 22%);mask-image:linear-gradient(90deg,transparent,#000 22%)}.hero h1{font-size:38px}}
+@media(max-width:640px){.cards,.row,.feat{grid-template-columns:1fr}.price{transform:scale(.7) rotate(-6deg);right:-10px}.header .btn{padding:10px 16px}}
 </style>
 </head>
 <body>
@@ -103,62 +103,4 @@ footer nav a:last-child{border:0}
   <div class="chk"><span><i>✓</i>Cepat &amp; Profesional</span><span><i>✓</i>Terpercaya</span><span><i>🏷</i>Harga Terjangkau</span></div>
   <div class="cta"><a class="btn" href="#layanan">📅 Pesan Layanan Sekarang →</a><button class="btn2 wal" data-m="Halo KostService, saya ingin bertanya tentang layanan."><b>💬 Chat WhatsApp</b>082114933545</button></div>
  </div>
- <img class="girl" alt="Petugas KostService" src="images/hero.jpg">
-</section>
-
-<section class="cat" id="layanan">
- <h2>Katalog Layanan Kami</h2><a class="all" href="#layanan" id="all">Lihat Semua Layanan →</a>
- <div class="cards">
-  <div class="card"><div class="im"><img alt="" src="images/card1.jpg"></div><h3>🧹 Kost Cleaning</h3><p>Bersih, nyaman, sehat</p><button class="btn ord" data-s="Kost Cleaning">🛒 Pesan Sekarang</button></div>
-  <div class="card"><div class="im"><img alt="" src="images/card2.jpg"></div><h3>🧼 Kost Laundry</h3><p>Cuci cepat &amp; bersih</p><button class="btn ord" data-s="Kost Laundry">🛒 Pesan Sekarang</button></div>
-  <div class="card"><div class="im"><img alt="" src="images/card3.jpg"></div><h3>🚚 Kost Delivery</h3><p>Antar kebutuhan Anda</p><button class="btn ord" data-s="Kost Delivery">🛒 Pesan Sekarang</button></div>
-  <div class="card"><div class="im"><img alt="" src="images/card4.jpg"></div><h3>🔧 Kost Repair</h3><p>Perbaikan ringan &amp; cepat</p><button class="btn ord" data-s="Kost Repair">🛒 Pesan Sekarang</button></div>
-  <div class="card"><div class="im"><img alt="" src="images/card5.jpg"></div><h3>💙 Kost Care</h3><p>Perawatan berkala</p><button class="btn ord" data-s="Kost Care">🛒 Pesan Sekarang</button></div>
- </div>
-</section>
-
-<section class="feat" id="harga">
- <div><span>⏱</span><p><b>Pelayanan Cepat</b>Sesuai Jadwal</p></div>
- <div><span>🛡</span><p><b>Aman &amp; Terpercaya</b>Untuk Kamar Anda</p></div>
- <div><span>🎧</span><p><b>CS Responsif</b>Via WhatsApp</p></div>
- <div><span>🏷</span><p><b>Harga Transparan</b>Tanpa Biaya Tersembunyi</p></div>
-</section>
-
-<section class="row">
- <div id="tentang"><h3>🏠 Tentang KostService</h3><p>KostService adalah layanan one stop service untuk semua kebutuhan anak kos. Kami hadir untuk membuat hidup Anda lebih mudah, nyaman, dan produktif.</p><button class="btn sm" id="more">Pelajari Lebih Lanjut →</button></div>
- <div class="room"><img alt="Kamar kos" src="images/room.jpg"></div>
- <div class="tes" id="testimoni"><h3>★ Testimoni Pelanggan <a href="#testimoni" id="allt" style="float:right;font-size:12px;color:var(--b)">Lihat Semua →</a></h3>
-  <div class="tbox"><div class="av" id="av"><img alt="" src="images/avatar.jpg"></div><div><q id="tq">“Pelayanannya cepat, kamar jadi lebih bersih dan nyaman. Recommended banget untuk anak kos!”</q><small id="tn">– Siti Rahma, Mahasiswi</small><span class="stars">★★★★★</span></div></div>
-  <div class="dots" id="dots"><i class="on"></i><i></i><i></i></div></div>
- <div class="wa" id="kontak"><div class="ic">📱</div><div><b>Pesan Sekarang<br>Melalui WhatsApp</b><em>082114933545</em><button class="w wal" data-m="Halo KostService, saya ingin memesan layanan.">Chat Sekarang →</button></div></div>
-</section>
-
-<footer>
- <a class="logo" href="#top"><span><b style="font-size:22px;color:#fff">Kost<i style="color:#fff">Service</i></b><small>Solusi Praktis untuk Semua Kebutuhan Anak Kos</small></span></a>
- <nav><a href="#beranda">Beranda</a><a href="#layanan">Layanan</a><a href="#harga">Harga</a><a href="#tentang">Tentang Kami</a><a href="#testimoni">Testimoni</a><a href="#kontak">Kontak</a></nav>
- <div class="soc"><a href="https://www.instagram.com/" target="_blank" rel="noopener">📷</a><a href="https://www.tiktok.com/" target="_blank" rel="noopener">🎵</a><a href="https://www.youtube.com/" target="_blank" rel="noopener">▶️</a><a href="https://wa.me/6282114933545" target="_blank" rel="noopener">💬</a></div>
- <span class="copy">KostService © 2026. Semua Hak Dilindungi.</span>
-</footer>
-<div id="toast"></div>
-
-<script>
-var N="6282114933545";
-function wa(m){window.open("https://wa.me/"+N+"?text="+encodeURIComponent(m),"_blank")}
-function toast(t){var e=document.getElementById("toast");e.textContent=t;e.style.display="block";setTimeout(function(){e.style.display="none"},3000)}
-document.querySelectorAll(".wal").forEach(function(b){b.onclick=function(){wa(b.dataset.m)}});
-document.querySelectorAll(".ord").forEach(function(b){b.onclick=function(){wa("Halo KostService, saya ingin memesan layanan "+b.dataset.s+".")}});
-document.querySelectorAll(".dd div a").forEach(function(a){a.onclick=function(e){e.preventDefault();wa("Halo KostService, saya ingin memesan layanan "+a.dataset.s+".")}});
-document.getElementById("ddb").onclick=function(e){e.preventDefault();this.parentNode.classList.toggle("open")};
-document.getElementById("all").onclick=function(e){e.preventDefault();toast("Semua layanan sudah tampil di katalog ini.")};
-document.getElementById("allt").onclick=function(e){e.preventDefault();toast("Terima kasih atas testimoni dari pelanggan kami!")};
-document.getElementById("more").onclick=function(){toast("KostService: cleaning, laundry, delivery, repair & care untuk anak kos.")};
-var links=document.querySelectorAll("#menu>a");
-links.forEach(function(a){a.addEventListener("click",function(){links.forEach(function(x){x.classList.remove("on")});a.classList.add("on")})});
-var T=[["“Pelayanannya cepat, kamar jadi lebih bersih dan nyaman. Recommended banget untuk anak kos!”","– Siti Rahma, Mahasiswi",'<img alt="" src="images/avatar.jpg">'],["“Laundrynya rapi dan wangi, diantar tepat waktu. Sangat membantu saat masa ujian.”","– Budi Santoso, Mahasiswa","👨"],["“Kran kamar mandi bocor langsung dibenerin cepat. Harganya juga jelas!”","– Dewi Lestari, Karyawati","👩‍💼"]];
-var d=document.querySelectorAll("#dots i"),k=0,tm;
-function show(i){k=i;document.getElementById("tq").textContent=T[i][0];document.getElementById("tn").textContent=T[i][1];document.getElementById("av").innerHTML=T[i][2];d.forEach(function(x,j){x.className=j==i?"on":""})}
-d.forEach(function(x,i){x.onclick=function(){show(i);clearInterval(tm);tm=setInterval(function(){show((k+1)%3)},5000)}});
-tm=setInterval(function(){show((k+1)%3)},5000);
-</script>
-</body>
-  </html>
+ <img class="girl" alt="Petugas KostService" src="data:image/jpeg;base64,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
